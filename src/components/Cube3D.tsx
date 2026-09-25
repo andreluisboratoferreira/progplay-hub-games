@@ -166,7 +166,7 @@ export const Cube3D: React.FC = () => {
                   <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: face.accent }} />
                   {face.name}
                 </span>
-                <span className="text-[9px] opacity-60">100 Fases</span>
+                <span className="text-[9px] opacity-60">120 Fases</span>
               </div>
 
               {/* Center Face Symbol */}
@@ -215,7 +215,7 @@ export const Cube3D: React.FC = () => {
           <span>Mova o mouse para girar o cubo 3D</span>
         </p>
         <p className="text-[11px] text-neutral-500 mt-0.5">
-          5 linguagens • 100 fases progressivas • Do Zero ao Site Completo
+          5 linguagens • 120 fases práticas cada (600 no total) • Do Zero ao Fullstack
         </p>
       </div>
     </div>

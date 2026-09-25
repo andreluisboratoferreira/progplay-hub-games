@@ -1,6 +1,6 @@
 {
-  "name": "VS Code Editor",
-  "description": "Plataforma interativa de programação estilo VS Code com login seguro, cubo 3D interativo, 5 linguagens (JavaScript, Python, CSS, HTML, SQL) e 100 níveis práticos: do Enigma das Portas à Construção de Sites Completos.",
+  "name": "ProgPlay",
+  "description": "Plataforma gamificada de programação com cubo 3D, 5 linguagens (JavaScript, Python, CSS, HTML, SQL), 600 níveis práticos, arena multiplayer 1v1 com superpoderes e cursos com IA.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

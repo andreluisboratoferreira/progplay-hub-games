@@ -332,14 +332,18 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({
       if (l.includes('sql')) return 'sql';
       if (l.includes('css')) return 'css';
     }
-    return (localStorage.getItem('codecraft_playground_lang') as PlaygroundLang) || 'python';
+    return (
+      (localStorage.getItem('progplay_playground_lang') as PlaygroundLang) ||
+      (localStorage.getItem('codecraft_playground_lang') as PlaygroundLang) ||
+      'python'
+    );
   });
 
   const [code, setCode] = useState<string>(() => {
     if (customCourse?.modules?.[0]?.starterCode) {
       return customCourse.modules[0].starterCode;
     }
-    const saved = localStorage.getItem(`codecraft_playground_${currentLang}`);
+    const saved = localStorage.getItem(`progplay_playground_${currentLang}`) || localStorage.getItem(`codecraft_playground_${currentLang}`);
     if (saved) return saved;
     return TEMPLATES[currentLang][0].code;
   });
@@ -378,8 +382,8 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({
   // Switch language
   const handleSelectLang = (lang: PlaygroundLang) => {
     setCurrentLang(lang);
-    localStorage.setItem('codecraft_playground_lang', lang);
-    const saved = localStorage.getItem(`codecraft_playground_${lang}`);
+    localStorage.setItem('progplay_playground_lang', lang);
+    const saved = localStorage.getItem(`progplay_playground_${lang}`) || localStorage.getItem(`codecraft_playground_${lang}`);
     const initial = saved || TEMPLATES[lang][0].code;
     setCode(initial);
     setOutputLogs([]);
@@ -397,14 +401,14 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({
   // Change code & auto-save to localStorage
   const handleCodeChange = (newVal: string) => {
     setCode(newVal);
-    localStorage.setItem(`codecraft_playground_${currentLang}`, newVal);
+    localStorage.setItem(`progplay_playground_${currentLang}`, newVal);
   };
 
   // Apply template
   const handleApplyTemplate = (tmpl: PlaygroundTemplate) => {
     sounds.playClick();
     setCode(tmpl.code);
-    localStorage.setItem(`codecraft_playground_${currentLang}`, tmpl.code);
+    localStorage.setItem(`progplay_playground_${currentLang}`, tmpl.code);
     setOutputLogs([
       {
         type: 'log',
@@ -446,7 +450,7 @@ export const PlaygroundView: React.FC<PlaygroundViewProps> = ({
     sounds.playClick();
     const defaultTemplate = TEMPLATES[currentLang][0].code;
     setCode(defaultTemplate);
-    localStorage.setItem(`codecraft_playground_${currentLang}`, defaultTemplate);
+    localStorage.setItem(`progplay_playground_${currentLang}`, defaultTemplate);
     setOutputLogs([]);
     setSqlResults(null);
   };
