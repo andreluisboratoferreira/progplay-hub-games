@@ -1,0 +1,126 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Perfil do usuário contendo o progresso das portas nas 5 linguagens e metadados da conta",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "ID único do usuário Firebase Auth"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Nome de exibição do usuário"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email do usuário"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL do avatar do usuário"
+        },
+        "provider": {
+          "type": "string",
+          "description": "Provedor de autenticação (google.com ou github.com)"
+        },
+        "unlockedLevels": {
+          "type": "object",
+          "description": "Fases desbloqueadas por linguagem (javascript, python, css, html, sql)"
+        },
+        "currentLanguage": {
+          "type": "string",
+          "description": "Última linguagem ativa do usuário"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp ISO de criação"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp ISO da última sincronização"
+        }
+      },
+      "required": ["userId", "unlockedLevels"]
+    },
+    "CompetitionRoom": {
+      "title": "CompetitionRoom",
+      "description": "Sala multiplayer de competição e quiz de programação em tempo real",
+      "type": "object",
+      "properties": {
+        "roomCode": {
+          "type": "string",
+          "description": "Código de 6 caracteres para entrar na sala"
+        },
+        "language": {
+          "type": "string",
+          "description": "Linguagem do quiz (html, javascript, python, css, sql)"
+        },
+        "creatorId": {
+          "type": "string",
+          "description": "ID do usuário que criou a sala"
+        },
+        "creatorName": {
+          "type": "string",
+          "description": "Nome do criador da sala"
+        },
+        "creatorPhoto": {
+          "type": "string",
+          "description": "Avatar do criador"
+        },
+        "participantId": {
+          "type": "string",
+          "description": "ID do jogador desafiante que entrou na sala"
+        },
+        "participantName": {
+          "type": "string",
+          "description": "Nome do desafiante"
+        },
+        "participantPhoto": {
+          "type": "string",
+          "description": "Avatar do desafiante"
+        },
+        "status": {
+          "type": "string",
+          "description": "Estado da sala: waiting, active, finished"
+        },
+        "currentQuestion": {
+          "type": "number",
+          "description": "Índice da pergunta atual"
+        },
+        "questions": {
+          "type": "array",
+          "description": "Perguntas de quiz geradas para a rodada"
+        },
+        "scores": {
+          "type": "object",
+          "description": "Pontuações dos jogadores"
+        },
+        "answers": {
+          "type": "object",
+          "description": "Respostas registradas por jogador"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Data de criação"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Data da última atualização"
+        }
+      },
+      "required": ["roomCode", "language", "creatorId", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Armazenamento do perfil e progresso do jogador nas 50 fases"
+    },
+    "/competitions/{roomCode}": {
+      "schema": "CompetitionRoom",
+      "description": "Salas de competição multiplayer sincronizadas em tempo real"
+    }
+  }
+}

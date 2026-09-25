@@ -1,0 +1,6 @@
+{
+  "name": "VS Code Editor",
+  "description": "Plataforma interativa de programação estilo VS Code com login seguro, cubo 3D interativo, 5 linguagens (JavaScript, Python, CSS, HTML, SQL) e 100 níveis práticos: do Enigma das Portas à Construção de Sites Completos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
