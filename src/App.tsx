@@ -421,7 +421,7 @@ export default function App() {
           const guestUser = {
             uid: 'guest-' + Math.random().toString(36).substring(2, 9),
             displayName: 'Visitante Convidado',
-            email: 'visitante@progplay.local',
+            email: 'visitante@codecraft.local',
             photoURL: null,
           } as unknown as User;
           setCurrentUser(guestUser);

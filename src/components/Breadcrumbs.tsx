@@ -24,7 +24,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ fileName, settings, cu
     >
       <div className="flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
         <Folder className="w-3 h-3 text-amber-400" />
-        <span>progplay</span>
+        <span>jogo_vscode</span>
       </div>
 
       <ChevronRight className="w-3 h-3 opacity-40" />
